@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light Theme - White, Light Blue, Turquoise, Gray */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3%;
+    --primary: 200 100% 70%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 174 72% 56%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 95%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 174 72% 75%;
+    --accent-foreground: 0 0% 3%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 40% 88%;
+    --input: 210 40% 96%;
+    --ring: 200 100% 70%;
+    --radius: 1rem;
+
+    /* Light Theme Gradients - Light Blue to Turquoise */
+    --gradient-primary: linear-gradient(135deg, hsl(199, 96%, 72%), hsl(174 72% 56%));
+    --gradient-accent: linear-gradient(135deg, hsl(180, 100%, 90%) 0%, hsl(0, 22%, 96%) 100%);
+    --gradient-card: linear-gradient(145deg, hsla(0, 0%, 100%, 0.95), hsla(174, 72%, 56%, 0.08));
+    --gradient-background: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(200 100% 95%) 30%, hsl(174, 72%, 56%) 70%, hsl(168, 20%, 95%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(200 100% 50%), hsl(174 72% 56%));
+    --glass-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.15);
+    --font-primary: 'Poppins', sans-serif;
+  }
+
+  .dark {
+    /* Dark Theme - Black, Orange-Yellow Gradient, White/Gray */
+    --background: 0 0% 3%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 25 100% 65%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 45 100% 60%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 45 100% 70%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 12%;
+    --input: 0 0% 8%;
+    --ring: 25 100% 65%;
+
+    /* Dark Theme Gradients - Orange to Yellow */
+    --gradient-primary: linear-gradient(135deg, hsl(25 100% 65%), hsl(45 100% 60%));
+    --gradient-accent: linear-gradient(135deg, hsl(49, 67%, 5%) 0%, hsl(0, 0%, 0%) 100%);
+    --gradient-card: linear-gradient(145deg, hsla(0, 0%, 6%, 0.9), hsla(25, 100%, 65%, 0.1));
+    --gradient-background: linear-gradient(135deg, hsl(0 0% 3%) 0%, hsl(0 0% 6%) 30%, hsl(25 100% 10%) 70%, hsl(39, 80%, 50%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(25 100% 65%), hsl(45 100% 60%));
+    --glass-shadow: 0 8px 32px 0 rgba(2, 1, 0, 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-primary;
+    background: var(--gradient-background);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+    transition: background 0.3s ease;
+  }
+
+  /* Animated background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-accent);
+    animation: gradientShift 15s ease infinite;
+    z-index: -1;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply backdrop-blur-glass bg-gradient-card border border-border/30 shadow-glass;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .dark .glass-card {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .text-gradient {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .btn-hero {
+    @apply bg-gradient-primary hover:opacity-90 text-white shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-secondary/20 to-accent/20 border border-secondary/30 hover:bg-secondary/10 backdrop-blur-md;
+  }
+
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  .theme-toggle {
+    @apply p-2 rounded-lg bg-card border border-border hover:bg-muted transition-colors;
+  }
+}
+
+@layer utilities {
+
+  /* Floating animation */
+  .floating {
+    animation: floating 6s ease-in-out infinite;
+  }
+
+  .floating-delayed {
+    animation: floating 6s ease-in-out infinite 2s;
+  }
+}
+
+/* Keyframes */
+@keyframes gradientShift {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
