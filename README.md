@@ -1,33 +1,44 @@
-# Portfólio - Isaque Santos
 
-Este projeto é o meu portfólio de desenvolvedor frontend.  
-Foi desenvolvido como resultado dos meus estudos em **React, TypeScript e Tailwind CSS**, com foco em:
+# 🌐 Portfólio Pessoal – Isaque Santos | Desenvolvedor Full-Stack  
 
-- Organização de código
-- Responsividade
-- Uso de componentes reutilizáveis
-- Experiência prática com ferramentas modernas do ecossistema frontend
+Bem-vindo ao repositório do meu **portfólio pessoal**, um projeto **dinâmico e interativo** que serve como vitrine das minhas competências como **Desenvolvedor Full-Stack**.  
+O que começou como um projeto de estudos evoluiu para uma **aplicação web completa e profissional**, demonstrando minhas habilidades desde a concepção da interface até a integração com o backend.  
+
+🔗 **Versão ao vivo:** [isaque-santos-portfolio.vercel.app](https://isaque-santos-portfolio.vercel.app)  
 
 ---
 
-## 📖 Objetivo do Projeto
+## ✨ Destaques do Projeto  
 
-O portfólio foi criado para apresentar minhas habilidades técnicas e servir como vitrine profissional.  
-Além disso, é um projeto que consolida aprendizados adquiridos em cursos e práticas de desenvolvimento.
+🚀 Este não é apenas um site estático. O portfólio foi construído com foco em **interatividade, performance e design moderno**, implementando funcionalidades que vão além de uma simples página de apresentação.  
 
----
-
-## 🚀 Tecnologias Utilizadas
-
-- ![Vite](https://skillicons.dev/icons?i=vite) **Vite** – Bundler e ferramenta de desenvolvimento rápida
-- ![TypeScript](https://skillicons.dev/icons?i=typescript) **TypeScript** – Tipagem estática para maior segurança e produtividade
-- ![React](https://skillicons.dev/icons?i=react) **React** – Biblioteca para construção de interfaces
-- ![Tailwind](https://skillicons.dev/icons?i=tailwind) **Tailwind CSS** – Estilização rápida e eficiente
-- ![ShadcnUI](https://skillicons.dev/icons?i=react) **shadcn/ui** – Componentes pré-construídos para maior produtividade
+- 🎨 **Design Responsivo e Moderno** – Desenvolvido com **Tailwind CSS** e **shadcn/ui**, garantindo fluidez em qualquer dispositivo.  
+- ⚡ **Performance Otimizada para Mobile** – Efeitos visuais avançados são adaptados ou desativados em telas menores para maior velocidade.  
+- 🔗 **Interatividade com Backend Real** – Sistema de contagem de visualizações e likes conectado ao **Supabase**.  
+- 🧩 **Componentização com React** – Estrutura modular, escalável e de fácil manutenção.  
+- 🌙 **Sistema de Temas (Dark/Light Mode)** – Personalização de experiência visual com troca dinâmica de temas.  
 
 ---
 
-## 📂 Estrutura de Pastas
+## 🚀 Tecnologias e Ferramentas  
+
+### **Frontend**
+![React](https://skillicons.dev/icons?i=react)
+![TypeScript](https://skillicons.dev/icons?i=typescript)
+![Vite](https://skillicons.dev/icons?i=vite)
+
+### **Estilização**
+![Tailwind](https://skillicons.dev/icons?i=tailwind)  
+![Shadcn](https://img.shields.io/badge/shadcn/ui-000000?style=for-the-badge&logo=react&logoColor=white)  
+![Framer Motion](https://img.shields.io/badge/Framer%20Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)
+
+### **Backend & Deploy**
+![Supabase](https://skillicons.dev/icons?i=supabase)  
+![Vercel](https://skillicons.dev/icons?i=vercel)  
+
+---
+
+## 📂 Estrutura de Pastas  
 
 ```bash
 ├── public/               # Arquivos estáticos
@@ -43,25 +54,34 @@ Além disso, é um projeto que consolida aprendizados adquiridos em cursos e pr�
 │   ├── index.css         # Estilos globais (Tailwind + variáveis CSS)
 │   ├── main.tsx          # Ponto de entrada da aplicação
 │   └── ...
-├── .env                  # Variáveis de ambiente
+├── .env.local            # Variáveis de ambiente
 ├── package.json
-├── tailwind.config.ts    # Configuração do Tailwind
-├── tsconfig.json         # Configuração do TypeScript
-└── vite.config.ts        # Configuração do Vite
+├── tailwind.config.ts
+├── tsconfig.json
+└── vite.config.ts
 ```
 
 ---
 
-## ⚙️ Como Rodar o Projeto Localmente
+## ⚙️ Como Executar o Projeto Localmente  
 
-Pré-requisitos:
+### Pré-requisitos
+- [Node.js](https://nodejs.org/) (versão LTS recomendada)  
+- npm ou yarn  
 
-- [Node.js](https://nodejs.org/) (versão LTS recomendada)
-- npm ou yarn
+### Passos de execução
 
 ```sh
+# Clonar o repositório
+git clone https://github.com/IsaqueCodeX/isaque-santos-portfolio.git
+cd isaque-santos-portfolio
+
 # Instalar dependências
 npm install
+
+# Configurar variáveis de ambiente (.env.local)
+VITE_SUPABASE_URL="URL_DO_SEU_PROJETO_SUPABASE"
+VITE_SUPABASE_ANON_KEY="SUA_CHAVE_ANON_SUPABASE"
 
 # Rodar em ambiente de desenvolvimento
 npm run dev
@@ -70,51 +90,36 @@ npm run dev
 npm run build
 ```
 
-O servidor de desenvolvimento será iniciado em [http://localhost:5173](http://localhost:5173) por padrão.
+🔗 O servidor local será iniciado em: [http://localhost:5173](http://localhost:5173) (ou outra porta disponível).  
 
 ---
 
-## 🌎 Deploy
+## 🌟 Possíveis Melhorias e Próximos Passos  
 
-O projeto pode ser publicado em plataformas como:
+Este projeto está em constante evolução. As próximas etapas incluem:  
 
-- [Vercel](https://isaque-santos-portfolio.vercel.app/)
-- [Netlify](https://www.netlify.com)
-- [GitHub Pages](https://pages.github.com/)
-
-Cada uma dessas plataformas permite deploy contínuo integrado ao GitHub.  
-Assim, basta configurar o repositório e os builds serão automatizados.
+- [ ] 🧪 **Testes Unitários e de Integração** – Utilizando **Vitest** e **React Testing Library**.  
+- [ ] ♿ **Acessibilidade (A11Y)** – Garantir que o site seja totalmente acessível.  
+- [ ] 🔍 **SEO Avançado** – Implementar **SSR/SSG** com **Next.js** para melhorar performance e ranqueamento.  
+- [ ] 🎞️ **Animações de Página** – Criar transições entre seções para navegação mais fluida.  
 
 ---
 
-## 📌 Sobre o Projeto
+## 📊 Status do Projeto  
 
-Este portfólio é resultado dos meus estudos em **Frontend**.  
-O objetivo é demonstrar:
-
-- Conhecimentos em **HTML, CSS, JavaScript, TypeScript e React**
-- Uso de **Tailwind CSS** para estilização escalável
-- Aplicação de **componentização** e boas práticas
-- Experiência com **ferramentas modernas de build e deploy**
+- ✅ Deploy automatizado via **Vercel**  
+- ✅ Integração com **Supabase** concluída  
+- 🚧 Melhorias em andamento (testes, SEO e acessibilidade)  
 
 ---
 
-## ✨ Próximos Passos e Melhorias Futuras
-
-- Adicionar novos componentes interativos
-- Melhorar acessibilidade (A11Y)
-- Criar testes unitários para componentes
-- Incluir integrações com APIs externas
-
----
-
-## 📬 Contato
+## 📬 Contato  
 
 👤 **Isaque Santos**  
 🔗 [LinkedIn](https://linkedin.com/in/isaque-santos-720b8b15a)  
-📧 **isaque.v.l@gmail.com**  
-📱 **(48) 98457-6217**
+📧 [isaque.v.l@gmail.com](mailto:isaque.v.l@gmail.com)  
+💬 [WhatsApp](https://wa.me/qr/SW4TC4J2EZVNM1)  
 
 ---
 
-📌 Este repositório é parte do meu portfólio profissional e representa minha evolução como desenvolvedor frontend.
+⭐ Se você gostou deste projeto, não esqueça de deixar uma **star** no repositório!  
