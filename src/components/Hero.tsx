@@ -1,9 +1,13 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import profileImage from "@/assets/profile.png";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Hero = () => {
+  const isMobile = useIsMobile();
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -15,19 +19,22 @@ const Hero = () => {
     <section id="inicio" className="min-h-screen flex items-center justify-center pt-20 pb-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-12 items-center justify-center">
-          {/* Profile Image */}
-          <div className="flex justify-center order-2 lg:order-1">
+          
+          {/* Coluna da Imagem (Ordem ajustada para mobile) */}
+          <div className="flex justify-center order-1 lg:order-2">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-2xl"></div>
               <div className="relative glass-card p-2 rounded-full">
-                <GlowingEffect
-                  spread={40}
-                  glow={true}
-                  disabled={false}
-                  proximity={80}
-                  inactiveZone={0.01}
-                  borderWidth={3}
-                />
+                {!isMobile && (
+                  <GlowingEffect
+                    spread={40}
+                    glow={true}
+                    disabled={false}
+                    proximity={80}
+                    inactiveZone={0.01}
+                    borderWidth={3}
+                  />
+                )}
                 <img
                   src={profileImage}
                   alt="Isaque Santos - Desenvolvedor Full-Stack"
@@ -37,19 +44,19 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Text Content */}
-          <div className="space-y-8 text-center order-1 lg:order-2 lg:ml-8">
+          {/* Coluna do Texto (Ordem ajustada para mobile) */}
+          <div className="space-y-8 text-center order-2 lg:order-1 lg:text-left lg:ml-8">
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight text-center">
+              <h1 className="text-5xl md:text-6xl font-bold leading-tight text-center lg:text-left">
                 Olá, eu sou{" "}
                 <span className="text-gradient">
                   Isaque Santos
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground">
+              <p className="text-xl md:text-2xl text-muted-foreground text-center lg:text-left">
                 Desenvolvedor Full-Stack Júnior
               </p>
-              <div className="flex flex-wrap gap-2 justify-center">
+              <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                 {["HTML", "CSS", "JavaScript", "React", "TypeScript", "PHP", "SQL", "Python"].map((tech) => (
                   <span
                     key={tech}
@@ -61,13 +68,13 @@ const Hero = () => {
               </div>
             </div>
 
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto lg:mx-0">
               Apaixonado por criar soluções digitais inovadoras e funcionais. 
               Sempre em busca de novos desafios e oportunidades para crescer 
               profissionalmente.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button
                 onClick={() => scrollToSection("projetos")}
                 className="btn-hero px-8 py-6 text-lg rounded-xl group"
@@ -87,25 +94,15 @@ const Hero = () => {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="flex justify-center mt-16">
+        <div className="hidden lg:flex justify-center mt-16">
           <div className="animate-bounce">
             <button
               onClick={() => scrollToSection("tecnologias")}
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="Scroll para tecnologias"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
             </button>
           </div>
