@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Download } from "lucide-react";
 import profileImage from "@/assets/profile.png";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsMobile } from '@/hooks/use-mobile'; // Corrigido para o nome do seu hook
 
 const Hero = () => {
   const isMobile = useIsMobile();
@@ -16,25 +16,23 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="min-h-screen flex items-center justify-center pt-20 pb-16">
+    <section id="inicio" className="min-h-[100svh] flex items-center justify-center pt-20 pb-16">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-12 items-center justify-center">
           
-          {/* Coluna da Imagem (Ordem ajustada para mobile) */}
-          <div className="flex justify-center order-1 lg:order-2">
+          {/* Coluna da Imagem (Ordem Corrigida) */}
+          <div className="flex justify-center order-1 lg:order-1"> {/* Imagem é a primeira no mobile e no desktop */}
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-2xl"></div>
               <div className="relative glass-card p-2 rounded-full">
-                {!isMobile && (
-                  <GlowingEffect
-                    spread={40}
-                    glow={true}
-                    disabled={false}
-                    proximity={80}
-                    inactiveZone={0.01}
-                    borderWidth={3}
-                  />
-                )}
+                <GlowingEffect
+                  spread={40}
+                  glow={true}
+                  disabled={isMobile}
+                  proximity={80}
+                  inactiveZone={0.01}
+                  borderWidth={3}
+                />
                 <img
                   src={profileImage}
                   alt="Isaque Santos - Desenvolvedor Full-Stack"
@@ -44,8 +42,8 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Coluna do Texto (Ordem ajustada para mobile) */}
-          <div className="space-y-8 text-center order-2 lg:order-1 lg:text-left lg:ml-8">
+          {/* Coluna do Texto (Ordem Corrigida) */}
+          <div className="space-y-8 text-center lg:text-left order-2 lg:order-2"> {/* Texto é o segundo no mobile e no desktop */}
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl font-bold leading-tight text-center lg:text-left">
                 Olá, eu sou{" "}
