@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowUp, Github, Linkedin, Heart } from "lucide-react";
+import { ArrowUp, Github, Linkedin, Coffee } from "lucide-react";
 import { useEffect, useState } from "react";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import { Counter } from "@/components/ui/counter";
@@ -126,13 +126,13 @@ const Footer = () => {
           </div>
 
           {/* Copyright */}
-          <div className="pt-8 border-t border-border/30">
-            <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-              © 2025 Isaque Santos — Desenvolvido com 
-              <Heart className="h-4 w-4 text-red-500 animate-pulse" />
-              e código.
-            </p>
-          </div>
+         <div className="pt-8 border-t border-border/30">
+  <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
+    © 2025 Isaque Santos — Desenvolvido com 
+    <Coffee className="h-4 w-4 text-yellow-700" />
+    e código.
+  </p>
+</div>
         </div>
 
         {/* Back to Top Button */}
